@@ -1,0 +1,40 @@
+<div class="custom-container">
+  <form [formGroup]="registrationDetails">
+    <div class="row">
+      <div class="col-3">
+        <label for="firstname" class="form-label">firstname</label>
+        <input type="text" class="form-control" formControlName="firstname" />
+      </div>
+      <div class="col-3">
+        <label for="lastname" class="form-label">lastname</label>
+        <input type="text" class="form-control" formControlName="lastname" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3">
+        <label for="legalreferencetype" class="form-label"
+          >Legal reference type</label
+        >
+        <select class="form-select" formControlName="type">
+          <option *ngFor="let type of legalReferencetypes" [ngValue]="type">
+            {{ type }}
+          </option>
+        </select>
+      </div>
+      <div class="col-3">
+        <label for="value" class="form-label">value</label>
+        <input type="text" class="form-control" formControlName="value" />
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      (click)="onSubmit()"
+      [routerLink]="['/profile']"
+    >
+      Submit
+    </button>
+  </form>
+</div>
